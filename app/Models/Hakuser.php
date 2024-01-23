@@ -10,7 +10,11 @@ class Hakuser extends Model
 {
     use HasFactory;
 
-    function user() :HasMany {
-        return $this->hasMany(User::class,'hakakses','hakAkses');
+    protected $fillable = [
+        'hakuser', // Asumsikan kolom nama untuk menyimpan nama hak akses
+    ];
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 }

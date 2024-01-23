@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'hakuser_id'
     ];
 
     /**
@@ -45,7 +46,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    function hakuser():BelongsTo {
-        return $this->belongsTo(Hakuser::class,'hakAkses');
+   public function hakuser(){
+        return $this->belongsTo(Hakuser::class);
     }
 }
