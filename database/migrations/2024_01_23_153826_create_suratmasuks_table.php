@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('suratmasuks', function (Blueprint $table) {
             $table->id();
+            $table->string('noSurat');
+            $table->string('asalSurat');
+            $table->bigInteger('klasifikasi_id');
+            $table->date('tglsuratmasuk')->nullable();
+            $table->date('tglsuratditerima')->nullable();
+            $table->string('file')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->bigInteger('user_id');
+            $table->integer('notif');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

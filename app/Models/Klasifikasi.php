@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Klasifikasi extends Model
 {
     use HasFactory;
+    public function suratmasuk() {
+        return $this->hasMany(Suratmasuk::class);
+    }
 }

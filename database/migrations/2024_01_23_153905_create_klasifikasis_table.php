@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('klasifikasis', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
+            $table->string('nama');
+            $table->string('uraian');
             $table->timestamps();
         });
     }
