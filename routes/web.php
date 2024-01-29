@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuratMasukController;
+use App\Models\Suratmasuk;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +38,13 @@ Route::middleware('auth')->group(function () {
 
     // surat masuk
     Route::get('/suratmasuk',[SuratMasukController::class,'index'])->name('suratmasuk');
-    Route::get('/createsuratmasuk', function(){return view('surat.masuk.create');} )->name('buatsuratmasuk');
+    Route::get('/createsuratmasuk',[SuratMasukController::class,'create'] )->name('buatsuratmasuk');
+    Route::post('/createsuratmasuk',[SuratMasukController::class,'store'] );
+    Route::get('/editsuratmasuk/{id}',[SuratMasukController::class,'edit'] );
+    Route::post('/editsuratmasuk/{id}',[SuratMasukController::class,'update'] );
+    Route::post('/hapussuratmasuk/{id}',[SuratMasukController::class,'destroy'] )->name('hapussuratmasuk');
+    Route::get('suratmasuk/{id}',[SuratMasukController::class,'openfile'])->name('filesuratmasuk');
+
 });
 
 require __DIR__.'/auth.php';

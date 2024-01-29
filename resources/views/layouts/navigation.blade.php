@@ -14,7 +14,7 @@
                         Transaksi Surat
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Surat Masuk</a></li>
+                        <li><a class="dropdown-item" href="{{route('suratmasuk')}}">Surat Masuk</a></li>
                         <li><a class="dropdown-item" href="#">Surat keluar</a></li>
                     </ul>
                 </li>

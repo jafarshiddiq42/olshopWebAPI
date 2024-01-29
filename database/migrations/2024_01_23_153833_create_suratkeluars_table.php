@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('suratkeluars', function (Blueprint $table) {
             $table->id();
+            $table->integer('noagenda');
+            $table->string('tujuan');
+            $table->string('nosurat');
+            $table->string('klasifikasi_id');
+            $table->date('tglsurat');
+            $table->date('tglcatat');
+            $table->string('file');
+            $table->string('keterangan');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
