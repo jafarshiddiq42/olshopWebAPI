@@ -10,6 +10,7 @@ use App\Models\User;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +42,6 @@ Route::middleware('auth')->group(function () {
 
     // surat masuk
     Route::get('/suratmasuk',[SuratMasukController::class,'index'])->name('suratmasuk');
-    Route::get('/createsuratmasuk',[SuratMasukController::class,'create'] )->name('buatsuratmasuk');
-    Route::post('/createsuratmasuk',[SuratMasukController::class,'store'] );
-    Route::get('/editsuratmasuk/{id}',[SuratMasukController::class,'edit'] );
     Route::post('/editsuratmasuk/{id}',[SuratMasukController::class,'update'] );
     Route::post('/hapussuratmasuk/{id}',[SuratMasukController::class,'destroy'] )->name('hapussuratmasuk');
     Route::get('suratmasuk/{id}',[SuratMasukController::class,'openfile'])->name('filesuratmasuk');
@@ -54,15 +52,22 @@ Route::middleware('auth')->group(function () {
 
     // surat keluar 
     Route::get('/suratkeluar',[SuratKeluarController::class,'index'])->name('suratkeluar');
-    Route::get('/createsuratkeluar',[SuratKeluarController::class,'create'] )->name('buatsuratkeluar');
-    Route::post('/createsuratkeluar',[SuratKeluarController::class,'store'] );
-    Route::get('/editsuratkeluar/{id}',[SuratKeluarController::class,'edit'] );
     Route::post('/editsuratkeluar/{id}',[SuratKeluarController::class,'update'] );
     Route::get('suratkeluar/{id}',[SuratKeluarController::class,'openfile'])->name('filesuratkeluar');
     Route::post('/hapussuratkeluar/{id}',[SuratKeluarController::class,'destroy'] )->name('hapussuratkeluar');
 
 
 
+});
+Route::middleware(['auth', 'Role'])->group(function () {
+
+    Route::get('/createsuratmasuk',[SuratMasukController::class,'create'] )->name('buatsuratmasuk');
+    Route::post('/createsuratmasuk',[SuratMasukController::class,'store'] );
+    Route::get('/editsuratmasuk/{id}',[SuratMasukController::class,'edit'] );
+
+    Route::get('/createsuratkeluar',[SuratKeluarController::class,'create'] )->name('buatsuratkeluar');
+    Route::post('/createsuratkeluar',[SuratKeluarController::class,'store'] );
+    Route::get('/editsuratkeluar/{id}',[SuratKeluarController::class,'edit'] );
 });
 
 require __DIR__.'/auth.php';
