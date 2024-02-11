@@ -16,11 +16,13 @@ return new class extends Migration
             $table->integer('noagenda');
             $table->string('tujuan');
             $table->string('nosurat');
-            $table->string('klasifikasi_id');
+            $table->bigInteger('klasifikasi_id');
             $table->date('tglsurat');
             $table->date('tglcatat');
             $table->string('file');
             $table->string('keterangan');
+            $table->integer('notif');
+            $table->bigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
         });

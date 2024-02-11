@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style=" 5">
+<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" style=" 5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -15,7 +15,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('suratmasuk')}}">Surat Masuk</a></li>
-                        <li><a class="dropdown-item" href="#">Surat keluar</a></li>
+                        <li><a class="dropdown-item" href="{{route('suratkeluar')}}">Surat keluar</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

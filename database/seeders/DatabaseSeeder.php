@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         $hakusers = [
             [ 'hakuser' => 'admin',],
-            [ 'hakuser' => 'Karumkit',],
             [ 'hakuser' => 'user',],
+            [ 'hakuser' => 'Karumkit',],
         ];
         foreach ($hakusers as $hakuser) {
             DB::table('hakusers')->insert($hakuser);
@@ -56,6 +56,24 @@ class DatabaseSeeder extends Seeder
                 'name' => 'ver',
                 'hakuser_id'=>2,
                 'email' => 'ver@gmail.com',
+                'password' => Hash::make('admin123')
+            ],
+            [
+                'name' => 'karumkit',
+                'hakuser_id'=>3,
+                'email' => 'karumkit@gmail.com',
+                'password' => Hash::make('admin123')
+            ],
+            [
+                'name' => 'humas',
+                'hakuser_id'=>2,
+                'email' => 'humas@gmail.com',
+                'password' => Hash::make('admin123')
+            ],
+            [
+                'name' => 'uryanmed',
+                'hakuser_id'=>2,
+                'email' => 'uryan@gmail.com',
                 'password' => Hash::make('admin123')
             ]
         ];

@@ -11,4 +11,7 @@ class Klasifikasi extends Model
     public function suratmasuk() {
         return $this->hasMany(Suratmasuk::class);
     }
+    public function suratkeluar() {
+        return $this->hasMany(Suratkeluar::class);
+    }
 }

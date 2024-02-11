@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\SuratMasukController;
+use App\Models\Suratkeluar;
 use App\Models\Suratmasuk;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
@@ -44,6 +47,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/editsuratmasuk/{id}',[SuratMasukController::class,'update'] );
     Route::post('/hapussuratmasuk/{id}',[SuratMasukController::class,'destroy'] )->name('hapussuratmasuk');
     Route::get('suratmasuk/{id}',[SuratMasukController::class,'openfile'])->name('filesuratmasuk');
+    // disposisi surat masuk
+    Route::get('/createdisposisimasuk-{jenis}-{id}',[DisposisiController::class,'create'] )->name('buatdisposisimasuk');
+
+
+
+    // surat keluar 
+    Route::get('/suratkeluar',[SuratKeluarController::class,'index'])->name('suratkeluar');
+    Route::get('/createsuratkeluar',[SuratKeluarController::class,'create'] )->name('buatsuratkeluar');
+    Route::post('/createsuratkeluar',[SuratKeluarController::class,'store'] );
+    Route::get('/editsuratkeluar/{id}',[SuratKeluarController::class,'edit'] );
+    Route::post('/editsuratkeluar/{id}',[SuratKeluarController::class,'update'] );
+    Route::get('suratkeluar/{id}',[SuratKeluarController::class,'openfile'])->name('filesuratkeluar');
+    Route::post('/hapussuratkeluar/{id}',[SuratKeluarController::class,'destroy'] )->name('hapussuratkeluar');
+
+
 
 });
 

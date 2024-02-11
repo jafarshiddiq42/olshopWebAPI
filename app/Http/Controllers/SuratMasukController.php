@@ -50,7 +50,7 @@ class SuratMasukController extends Controller
         }
         $suratmasuk->keterangan = $request->keterangan;
         $suratmasuk->save();
-        return redirect()->back();
+        return redirect()->route('suratmasuk');
     }
 
     /**

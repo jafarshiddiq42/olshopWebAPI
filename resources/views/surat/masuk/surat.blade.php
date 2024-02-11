@@ -40,7 +40,7 @@
                                         <td class="text-end">{{ $surat->noSurat . ' | ' . $surat->tglsuratditerima }}
                                         </td>
                                         <td>
-                                            <a href="" class="m-1 btn btn-warning">
+                                            <a href="{{route('buatdisposisimasuk',['jenis'=>"1",'id'=>$surat->id])}}" class="m-1 btn btn-warning">
                                                 <i class="fas fa-share"></i>
                                             </a>
                                             <a href="/suratmasuk/{{$surat->id}}" class="btn btn-small btn-primary" target=”_blank” >
